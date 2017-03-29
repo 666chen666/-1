@@ -2,14 +2,12 @@
 
 namespace backend\controllers;
 
-
-
 use backend\models\Brand;
-use Codeception\PHPUnit\Constraint\Page;
 use yii\data\Pagination;
 use yii\web\Request;
 use yii\web\UploadedFile;
 use xj\uploadify\UploadAction;
+use hongyukeji\qiniu\Qiniu;
 class BrandController extends \yii\web\Controller
 {
     public function actionIndex()
@@ -92,6 +90,17 @@ class BrandController extends \yii\web\Controller
         $model = Brand::findOne(['id'=>$id]);
         $model->delete();
         return $this->redirect(['brand/recycle']);
+    }
+    public function actionTest(){
+        $ak = 'sss';
+        $sk = 'sss';
+        $domain = 'http://demo.domain.com/';
+        $bucket = 'demo';
+        $qiniu = new Qiniu($ak, $sk,$domain, $bucket);
+        $key = time();
+        $qiniu->uploadFile($_FILES['tmp_name'],$key);
+        $url = $qiniu->getLink($key);
+        return $url;
     }
 
 
