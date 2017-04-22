@@ -92,13 +92,13 @@ class BrandController extends \yii\web\Controller
         return $this->redirect(['brand/recycle']);
     }
     public function actionTest(){
-        $ak = 'sss';
-        $sk = 'sss';
-        $domain = 'http://demo.domain.com/';
-        $bucket = 'demo';
+        $ak = 'MiFxralRk0WjIDZt_511n1R4sLQbAodw-T3jU1iX';
+        $sk = 'QICPYpD4OWHbwIiDXid4ZAUhFn77weBMsQNKFAd4';
+        $domain = 'http://onkmpxhb6.bkt.clouddn.com/';
+        $bucket = 'phpshop1229';
         $qiniu = new Qiniu($ak, $sk,$domain, $bucket);
         $key = time();
-        $qiniu->uploadFile($_FILES['tmp_name'],$key);
+        $qiniu->uploadFile('E:\yiishop\advanced\backend\web\uploads\brand58da2636cd570.jpg',$key);
         $url = $qiniu->getLink($key);
         return $url;
     }

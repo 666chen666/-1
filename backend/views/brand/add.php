@@ -7,9 +7,6 @@ echo $form->field($model,'intro')->textarea();
 echo $form->field($model,'logo')->hiddenInput();
 
 //Remove Events Auto Convert
-
-
-
 //外部TAG
 echo \yii\bootstrap\Html::fileInput('test', NULL, ['id' => 'test']);
 echo \xj\uploadify\Uploadify::widget([

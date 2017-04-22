@@ -1,0 +1,17 @@
+<xml>
+    <ToUserName><![CDATA[<?php echo $FromUserName ?>]]></ToUserName>
+    <FromUserName><![CDATA[<?php echo $ToUserName?>]]></FromUserName>
+    <CreateTime>12345678</CreateTime>
+    <MsgType><![CDATA[news]]></MsgType>
+    <ArticleCount>5</ArticleCount>
+    <Articles>
+        <?php foreach($articles as $k=>$article):?>
+        <item>
+            <Title><![CDATA[第<?php echo $k+1;?>名]]></Title>
+            <Description><![CDATA[description1]]></Description>
+            <PicUrl><![CDATA[<?php echo $article['PicUrl']?>]]></PicUrl>
+            <Url><![CDATA[http://www.itsource.cn]]></Url>
+        </item>
+        <?php endforeach;?>
+    </Articles>
+</xml>
