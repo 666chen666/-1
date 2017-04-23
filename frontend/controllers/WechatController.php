@@ -1,4 +1,5 @@
 <?php
+namespace frontend\controllers;
 use EasyWeChat\Message\News;
 use EasyWeChat\Message\Text;
 use yii\web\Controller;
